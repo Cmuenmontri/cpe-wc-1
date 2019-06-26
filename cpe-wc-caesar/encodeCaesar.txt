@@ -1,0 +1,32 @@
+def encodeCaesar():
+    print("Encryption")
+
+    print("Message can only be Lower or Uppercase alphabet")
+    msg = input("Enter message: ")
+    key = int(input("Enter key(0-25): "))
+
+    encrypted_text = ""
+
+    for i in range(len(msg)):
+        if ord(msg[i]) == 32:  
+            encrypted_text += chr(ord(msg[i]))  
+
+        elif ord(msg[i]) + key > 122:
+            temp = (ord(msg[i]) + key) - 122
+            encrypted_text += chr(96+temp)
+
+        elif (ord(msg[i]) + key > 90) and (ord(msg[i]) <= 96):
+            temp = (ord(msg[i]) + key) - 90
+            encrypted_text += chr(64+temp)
+
+        else:
+            encrypted_text += chr(ord(msg[i]) + key)
+
+    print("Encrypted: " + encrypted_text)
+
+def main():
+    Input = int(input(encodeCaesar()))
+    
+
+if __name__ == "__main__":
+    main()

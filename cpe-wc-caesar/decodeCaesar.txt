@@ -1,0 +1,33 @@
+def decodeCaesar():
+    print("Decryption")
+
+    print("Message can only be Lower or Uppercase alphabet")
+    encrp_msg = input("Enter encrypted Text: ")
+    decrp_key = int(input("Enter key(0-25): "))
+
+    decrypted_text = ""
+
+    for i in range(len(encrp_msg)):
+        if ord(encrp_msg[i]) == 32:
+            decrypted_text += chr(ord(encrp_msg[i]))
+
+        elif ((ord(encrp_msg[i]) - decrp_key) < 97) and ((ord(encrp_msg[i]) - decrp_key) > 90):
+            temp = (ord(encrp_msg[i]) - decrp_key) + 26
+            decrypted_text += chr(temp)
+
+        elif (ord(encrp_msg[i]) - decrp_key) < 65:
+            temp = (ord(encrp_msg[i]) - decrp_key) + 26
+            decrypted_text += chr(temp)
+
+        else:
+            decrypted_text += chr(ord(encrp_msg[i]) - decrp_key)
+
+    print("Decrypted Text: " + decrypted_text)
+
+
+def main():
+    Intput =  int(input(decodeCaesar()))
+    
+
+if __name__ == "__main__":
+    main()
